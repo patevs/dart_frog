@@ -13,6 +13,9 @@ jobs:
       id-token: write # Required for authentication using OIDC
 
     steps:
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v4
+
       - name: 📦 Publish
         uses: ./.github/actions/pub_publish
         with:
