@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
 
@@ -77,6 +78,14 @@ ${HttpMethod.values.map((m) => m.value.toUpperCase()).join(', ')}.'''),
       const headers = <String, String>{'foo': 'bar'};
       final request = Request('GET', localhost, headers: headers);
       expect(request.headers['foo'], equals(headers['foo']));
+    });
+
+    test('has correct params (empty)', () {
+      final request = Request('GET', localhost);
+      expect(
+        request.params,
+        equals(UnmodifiableMapView<String, String>(const {})),
+      );
     });
 
     test('body can be read multiple times (sync)', () {
