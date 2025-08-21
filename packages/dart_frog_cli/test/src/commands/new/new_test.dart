@@ -42,7 +42,7 @@ const expectedUsage = [
       '  middleware   Create a new middleware for dart_frog\n'
       '  route        Create a new route for dart_frog\n'
       '\n'
-      'Run "dart_frog help" to see global options.'
+      'Run "dart_frog help" to see global options.',
 ];
 
 void main() {

@@ -39,7 +39,7 @@ const expectedUsage = [
       '-p, --plain    Return the output in a plain format, printing each route '
       'on a new line.\n'
       '\n'
-      'Run "dart_frog help" to see global options.'
+      'Run "dart_frog help" to see global options.',
 ];
 
 void main() {
