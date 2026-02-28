@@ -1,5 +1,5 @@
 ---
-title: Dart Frog and GraphQL basics
+title: Dart Frog and GraphQL Basics
 date: 2026-02-22
 excerpt:
   A guide on the basics of building a GraphQL server powered by Dart Frog.
@@ -102,9 +102,27 @@ Let's write a repository that we can use to query games:
 
 ```dart
 class GameRepository {
-  Future<List<Game>> fetchGames();
-  Future<Game?> fetchGameById(int id);
+  Future<List<Game>> fetchGames() async => _games;
+
+  Future<Game?> fetchGameById(int id) async {
+    final result = _games.where((game) => game.id == id);
+    if (result.isEmpty) return null;
+    return result.first;
+  }
 }
+
+const _games = [
+  Game(
+    id: 1,
+    name: 'Mine Cat Digger',
+    downloadLink: 'https://g4me.info/catdigger',
+  ),
+  Game(
+    id: 2,
+    name: 'Pixelado',
+    downloadLink: 'https://g4me.info/pixelado',
+  ),
+];
 ```
 
 :::tip
